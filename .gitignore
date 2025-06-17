@@ -1,6 +1,25 @@
+# 시스템 파일
 .DS_Store
+
+# 패키지
 /node_modules/
 
-# React Router
-/.react-router/
+# 빌드 결과물
+/dist/
 /build/
+
+# 환경 설정 파일
+.env
+.env.local
+.env.*.local
+
+# VSCode 설정
+.vscode/
+
+# 로그
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 기타
+/.react-router/
