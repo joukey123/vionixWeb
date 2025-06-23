@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Navbar from "./component/Navbar/Navbar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -20,6 +21,10 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://fonts.googleapis.com/css2?family=Pretendard&display=swap",
   },
 ];
 
@@ -40,9 +45,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
+export function meta() {
+  return [
+    { title: "VIONIX WEBSITE" },
+    { name: "description", content: "Welcome to VIONIX!" },
+  ];
+}
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -62,7 +77,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main className="container p-4 pt-16 mx-auto">
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (

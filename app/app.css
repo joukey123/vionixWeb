@@ -1,15 +1,40 @@
-@import "tailwindcss";
+/* @tailwindcss/language */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(250%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-250%);
+    opacity: 0;
   }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+body {
+  @apply font-sans;
+}
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px black; /* 크기와 색상 조절 가능 */
+}
+.slide-in-right {
+  animation: slideInFromRight 0.5s ease-out 0.2s both;
+}
+.slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out 0.4s both;
 }
